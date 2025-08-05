@@ -1,20 +1,20 @@
 {
-    "name": "Selvania-Launcher",
-    "preductname": "Selvania Launcher",
+    "name": "CobbleQuest-Launcher",
+    "preductname": "CobbleQuest Launcher",
     "version": "2.1.3",
     "description": "Launcher Mincraft pour le serveur Selvania",
     "main": "src/app.js",
     "author": {
-        "name": "luuxis, Inc.",
+        "name": "luuxis, Aconissensei, Inc.",
         "email": "contact@luuxis.fr",
         "url": "https://github.com/luuxis"
     },
-    "url": "http://launcher.luuxis.fr",
+    "url": "http://launcher.CobbleQuest.fr",
     "scripts": {
         "start": "cross-env-shell NODE_ENV=dev electron .",
         "dev": "cross-env-shell DEV_TOOL=open nodemon --exec npm start",
         "build": "node build.js --obf=true --build=platform",
-        "icon": "node build.js --icon=https://raw.githubusercontent.com/luuxis/Selvania-Launcher/master/src/assets/images/icon.png"
+        "icon": "node build.js --icon=https://cdn.discordapp.com/attachments/1374377262106935346/1402023005814657167/cobblequest.png?ex=6892672c&is=689115ac&hm=587ad3393579cff3260b86b03304a7fc6a4bcfba39564746226d0f0a8b0f9f2f&"
     },
     "license": "CCANC",
     "nodemonConfig": {
