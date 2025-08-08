@@ -210,43 +210,49 @@ class Home {
         let progressBar = document.querySelector('.progress-bar')
 
         let opt = {
-            url: options.url,
-            authenticator: authenticator,
-            timeout: 10000,
-            path: `${await appdata()}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}`,
-            instance: options.name,
-            version: options.loadder.minecraft_version,
-            detached: configClient.launcher_config.closeLauncher == "close-all" ? false : true,
-            downloadFileMultiple: configClient.launcher_config.download_multi,
-            intelEnabledMac: configClient.launcher_config.intelEnabledMac,
+    url: options.url,
+    authenticator: authenticator,
+    timeout: 10000,
+    path: `${await appdata()}/${process.platform == 'darwin' ? this.config.dataDirectory : `.${this.config.dataDirectory}`}`,
+    instance: options.name,
+    version: options.loadder.minecraft_version,
+    detached: configClient.launcher_config.closeLauncher == "close-all" ? false : true,
+    downloadFileMultiple: configClient.launcher_config.download_multi,
+    intelEnabledMac: configClient.launcher_config.intelEnabledMac,
 
-            loader: {
-                type: options.loadder.loadder_type,
-                build: options.loadder.loadder_version,
-                enable: options.loadder.loadder_type == 'none' ? false : true
-            },
+    loader: {
+        type: options.loadder.loadder_type,
+        build: options.loadder.loadder_version,
+        enable: options.loadder.loadder_type == 'none' ? false : true
+    },
 
-            verify: options.verify,
+    verify: options.verify,
 
-            ignored: [...options.ignored],
+    ignored: [...options.ignored],
 
-            java: {
-                path: configClient.java_config.java_path,
-            },
+    java: {
+        path: configClient.java_config.java_path,
+    },
 
-            JVM_ARGS:  options.jvm_args ? options.jvm_args : [],
-            GAME_ARGS: options.game_args ? options.game_args : [],
+    JVM_ARGS: options.jvm_args ? options.jvm_args : [],
 
-            screen: {
-                width: configClient.game_config.screen_size.width,
-                height: configClient.game_config.screen_size.height
-            },
+    GAME_ARGS: [
+        ...(options.game_args ? options.game_args : []),
+        '--server', '83.150.218.196',
+        '--port', '25565'
+    ],
 
-            memory: {
-                min: `${configClient.java_config.java_memory.min * 1024}M`,
-                max: `${configClient.java_config.java_memory.max * 1024}M`
-            }
-        }
+    screen: {
+        width: configClient.game_config.screen_size.width,
+        height: configClient.game_config.screen_size.height
+    },
+
+    memory: {
+        min: `${configClient.java_config.java_memory.min * 1024}M`,
+        max: `${configClient.java_config.java_memory.max * 1024}M`
+    }
+}
+
 
         launch.Launch(opt);
 
